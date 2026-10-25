@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Student Analytics{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="{{ url_for('dashboard') }}"><span class="brand-mark">SA</span><span>Student<span class="brand-light">Analytics</span></span></a>
+    <p class="nav-label">WORKSPACE</p>
+    <a class="nav-link {% if request.endpoint == 'dashboard' %}active{% endif %}" href="{{ url_for('dashboard') }}">▦ &nbsp; Overview</a>
+    <a class="nav-link {% if request.endpoint in ['student_list', 'student_detail'] %}active{% endif %}" href="{{ url_for('student_list') }}">♙ &nbsp; Students</a>
+    <a class="nav-link" href="{{ url_for('download_csv') }}">⇩ &nbsp; Export analysis</a>
+    <div class="sidebar-bottom"><div class="avatar">EWB</div><div><strong>Python with AI</strong><small>Student project</small></div></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><span class="eyebrow">ACADEMIC INSIGHTS</span><h1>{% block heading %}Overview{% endblock %}</h1></div><div class="topbar-tag"><span class="status-dot"></span> CSV data connected</div></header>
+    {% block content %}{% endblock %}
+    <footer>Student Performance Analytics <span>•</span> Built with Python, Flask, Pandas &amp; NumPy</footer>
+  </main>
+</body>
+</html>

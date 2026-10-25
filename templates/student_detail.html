@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ student.name }} · Student Analytics{% endblock %}
+{% block heading %}Student details{% endblock %}
+{% block content %}
+<a class="back-link" href="{{ url_for('student_list') }}">← Back to students</a>
+<section class="profile-card"><div class="profile-avatar">{{ student.name[0] }}</div><div class="profile-main"><span class="pill">STUDENT PROFILE</span><h2>{{ student.name }}</h2><p>{{ student.student_id }} · {{ student.department }}</p></div><div class="profile-grade"><span class="grade-chip grade-{{ student.grade|replace('+','plus') }}">{{ student.grade }}</span><span class="result {{ student.result|lower }}">{{ student.result }}</span></div></section>
+<section class="stats-grid detail-stats">
+  <article class="stat-card"><div class="stat-top"><span>Total marks</span><span class="stat-icon violet">∑</span></div><div class="stat-value">{{ student.total|int }}<small>/300</small></div><div class="stat-note">Combined subject marks</div></article>
+  <article class="stat-card"><div class="stat-top"><span>Average</span><span class="stat-icon blue">%</span></div><div class="stat-value">{{ "%.2f"|format(student.average) }}</div><div class="stat-note">Across three subjects</div></article>
+  <article class="stat-card"><div class="stat-top"><span>Attendance</span><span class="stat-icon amber">◷</span></div><div class="stat-value">{{ student.attendance|int }}<small>%</small></div><div class="stat-note">{{ student.attendance_status }} attendance</div></article>
+</section>
+<section class="panel"><div class="panel-heading"><div><h3>Subject marks</h3><p>Marks scored in each subject out of 100</p></div></div><div class="bar-chart detail-bars">{% for item in subjects %}<div class="bar-row"><div class="bar-label">{{ item.name }}</div><div class="bar-track"><div class="bar-fill" {{ ('style="width: ' ~ (item.marks|int) ~ '%"')|safe }}></div></div><strong>{{ item.marks }}</strong></div>{% endfor %}</div><p class="rule-note">Pass rule: at least 40 marks in every subject and an overall average of at least 50. Grade is calculated from the overall average.</p></section>
+{% endblock %}

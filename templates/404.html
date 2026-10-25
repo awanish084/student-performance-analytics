@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block title %}Not found · Student Analytics{% endblock %}
+{% block heading %}Student not found{% endblock %}
+{% block content %}<section class="panel empty-page"><div class="empty-symbol">?</div><h2>We couldn't find that record.</h2><p>The student ID may be invalid or the record may no longer exist.</p><a class="button" href="{{ url_for('student_list') }}">Return to students</a></section>{% endblock %}
