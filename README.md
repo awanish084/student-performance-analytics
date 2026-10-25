@@ -2,6 +2,8 @@
 
 A beginner-friendly academic data-analysis dashboard built with Python, Flask, Pandas, NumPy, and CSV. It summarizes student marks, calculates grades and pass/fail status, compares subject averages, highlights top performers, and flags attendance below 75%.
 
+**Author:** Awanish Sharma · EWB Courses — Python with AI
+
 ## Features
 
 - Dashboard summary: student count, class average, pass rate, and low-attendance count
@@ -11,6 +13,14 @@ A beginner-friendly academic data-analysis dashboard built with Python, Flask, P
 - Subject-wise averages and grade distribution
 - Export analyzed records as CSV
 - Input validation for missing columns, duplicate IDs, invalid marks, and invalid attendance
+
+## Screenshots
+
+![Dashboard](screenshots/dashboard.png)
+
+![Student directory](screenshots/students.png)
+
+![Student detail](screenshots/student_detail.png)
 
 ## Technology
 
@@ -27,7 +37,7 @@ A beginner-friendly academic data-analysis dashboard built with Python, Flask, P
 
 ## Rules used
 
--Pass: a student must score at least 40 in **each** subject **and** have an overall average of at least 50.
+- Pass: a student must score at least 40 in **each** subject **and** have an overall average of at least 50.
 - Grades based on average marks:
   - A+: 90–100
   - A: 80–89.99
@@ -81,6 +91,7 @@ student-performance-analytics/
 ├── requirements.txt
 ├── README.md
 ├── PROJECT_DOCUMENTATION.md
+├── .gitignore
 ├── templates/
 │   ├── base.html
 │   ├── index.html
@@ -89,8 +100,13 @@ student-performance-analytics/
 │   └── 404.html
 ├── static/
 │   └── style.css
+├── screenshots/
+│   ├── dashboard.png
+│   ├── students.png
+│   └── student_detail.png
 └── tests/
-    └── test_analytics.py
+    ├── test_analytics.py
+    └── test_app.py
 ```
 
 ## Important notes
@@ -98,4 +114,3 @@ student-performance-analytics/
 - This is an educational prototype, not a production student information system.
 - The Flask development server is intended for local testing only. `debug=True` should not be used when deploying publicly.
 - Replace or extend the sample dataset only with data you have permission to use. Do not upload private student information to a public repository.
-- Before submitting, add your name, course, internship details, screenshots, and actual GitHub repository URL to your documentation.
